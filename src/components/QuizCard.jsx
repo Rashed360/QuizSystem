@@ -1,3 +1,5 @@
+import { FaCheck, FaStar } from 'react-icons/fa'
+
 import sample from 'assets/sample.png'
 
 const QuizCard = () => {
@@ -14,8 +16,12 @@ const QuizCard = () => {
 				</p>
 				<div className='interaction'>
 					<div className='buttons'>
-						<button className='btn btn-success me-2'>Attempt</button>
-						<button className='btn btn-info me-2'>Wishlist</button>
+						<button className='btn btn-success me-2'>
+							<FaCheck /> Attempt
+						</button>
+						<button className='btn btn-info me-2'>
+							<FaStar /> Wishlist
+						</button>
 					</div>
 					<span>253</span>
 				</div>

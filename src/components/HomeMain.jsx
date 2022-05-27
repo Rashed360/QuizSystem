@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FaPlus, FaArrowRight } from 'react-icons/fa'
 import QuizCard from './QuizCard'
 
 const HomeMain = () => {
@@ -11,16 +12,18 @@ const HomeMain = () => {
 							<h1>Welcome to QuizSystem</h1>
 							<p>Attempt public quizes, or enter quiz-key to attempt a private quiz.</p>
 							<form>
-								<div class='input-group mb-3'>
-									<div className='me-2'>
+								<div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>
+									<div class='btn-group me-2'>
 										<Link className='btn btn-info' to='create'>
-											Create
+											<FaPlus /> Create
 										</Link>
 									</div>
-									<input type='text' class='form-control' placeholder='Enter quiz-key' />
-									<button class='btn btn-success' id='basic-addon2'>
-										Attend
-									</button>
+									<div class='input-group'>
+										<input type='text' class='form-control' placeholder='Enter quiz-key' />
+										<button class='btn btn-success' id='basic-addon2'>
+											Attend <FaArrowRight />
+										</button>
+									</div>
 								</div>
 							</form>
 						</section>

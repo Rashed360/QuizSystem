@@ -20,7 +20,7 @@ const NavBar = () => {
 					<span class='navbar-toggler-icon'></span>
 				</button>
 				<div class='collapse navbar-collapse' id='navbarSupportedContent'>
-					<Link to='/join' class='btn btn-outline-secondary'>
+					<Link to='/join' class='btn nav-button'>
 						Join Now
 					</Link>
 				</div>

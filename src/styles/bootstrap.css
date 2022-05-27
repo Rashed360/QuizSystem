@@ -31,3 +31,35 @@ input[type='number']:focus,
 .navbar-light .navbar-toggler {
 	border: none;
 }
+.nav-pills .nav-link {
+	display: inline;
+}
+
+/* Buttons */
+.btn {
+	padding: 10px 15px;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 27px;
+	color: #556272;
+	border: 1px solid #556272;
+	border-radius: 5px;
+}
+.btn-dark {
+	background-color: var(--dark);
+}
+.btn-light {
+	background-color: var(--light);
+}
+.btn-info {
+	background-color: var(--info);
+}
+.btn-success {
+	background-color: var(--success);
+}
+.btn-warning {
+	background-color: var(--warning);
+}
+.btn-danger {
+	background-color: var(--danger);
+}

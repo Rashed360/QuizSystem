@@ -1,12 +1,27 @@
 .marginTop {
 	margin-top: 60px;
 }
+/* Navigation */
+.nav-button {
+	color: #556272;
+	padding: 5px 15px;
+	background: #f3f3f3;
+}
+.nav-button:hover {
+	color: #f3f3f3;
+	background: var(--dark);
+}
 /* HomePage */
 .homepage-main .hero-section {
 	margin-top: 50px;
 }
 .homepage-main .hero-section form {
+	display: flex;
+	gap: 10px;
 	margin-top: 35px;
+}
+.homepage-main .hero-section form a {
+	min-width: none;
 }
 .homepage-main .content-section {
 	margin-top: 35px;
@@ -64,6 +79,44 @@
 .quizCard .image img {
 	width: 100%;
 }
+
+/* QuizCard */
+.faqs {
+	margin-top: 15px;
+}
+.faqs .faqCard {
+	background: #f3f3f3;
+	border: 1px solid #a0a0a0;
+	border-radius: 5px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+.faqs .faqCard .control {
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.faqs .faqCard .control svg {
+	font-size: large;
+	margin-right: 10px;
+}
+.faqs .faqCard h6,
+.faqs .faqCard p {
+	padding: 10px 15px;
+	margin-bottom: 0;
+}
+.faqs .faqCard p {
+	display: none;
+}
+.faqs .faqCard p.active {
+	display: block;
+	background: #ffffff;
+	border-top: 1px solid #a0a0a0;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
 	.quizCard {

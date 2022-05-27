@@ -7,6 +7,9 @@ const HomeSide = () => {
 				<div className='fixed-area'>
 					<h5>Frequently Asked Questions</h5>
 					<div className='faqs'>
+						<FaqCard active />
+						<FaqCard />
+						<FaqCard />
 						<FaqCard />
 					</div>
 				</div>
