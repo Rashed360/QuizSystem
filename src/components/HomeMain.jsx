@@ -10,7 +10,10 @@ const HomeMain = () => {
 					<div className='col-lg-11'>
 						<section className='hero-section'>
 							<h1>Welcome to QuizSystem</h1>
-							<p>Attempt public quizes, or enter quiz-key to attempt a private quiz.</p>
+							<p>
+								Attempt public quizes, or enter quiz-key to attempt a private quiz.
+								<br /> Create quizes and share with others! Happy Knowledge sharing!
+							</p>
 							<form>
 								<div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>
 									<div class='btn-group me-2'>

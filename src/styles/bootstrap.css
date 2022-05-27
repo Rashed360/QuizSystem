@@ -21,8 +21,15 @@ input[type='number']:focus,
 	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 	z-index: 999;
 }
-.navbar .navbar-brand img {
-	width: 163px;
+.navbar object {
+	height: 30px;
+}
+.navbar-brand svg {
+	height: 35px;
+	margin-top: -10px;
+	margin-right: 5px;
+}
+.navbar-brand img {
 	-webkit-user-drag: none;
 }
 .navbar-collapse {
@@ -62,4 +69,26 @@ input[type='number']:focus,
 }
 .btn-danger {
 	background-color: var(--danger);
+}
+.btn:hover {
+	color: #556272;
+	border: 1px solid #556272;
+}
+.btn-dark:hover {
+	background-color: #334964;
+}
+.btn-light:hover {
+	background-color: #e6e6e6;
+}
+.btn-info:hover {
+	background-color: #6ce1db;
+}
+.btn-success:hover {
+	background-color: #b8e254;
+}
+.btn-warning:hover {
+	background-color: #e1a751;
+}
+.btn-danger:hover {
+	background-color: #c03641;
 }

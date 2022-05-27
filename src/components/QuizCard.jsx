@@ -1,4 +1,4 @@
-import { FaCheck, FaStar } from 'react-icons/fa'
+import { FaCheck, FaStar, FaRegEye } from 'react-icons/fa'
 
 import sample from 'assets/sample.png'
 
@@ -23,7 +23,9 @@ const QuizCard = () => {
 							<FaStar /> Wishlist
 						</button>
 					</div>
-					<span>253</span>
+					<span>
+						<FaRegEye /> 253
+					</span>
 				</div>
 			</div>
 		</div>

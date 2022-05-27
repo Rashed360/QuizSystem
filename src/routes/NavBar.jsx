@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
-import logo from 'assets/logo.svg'
+import Logo from 'assets/logoText.svg'
+import AnimatedLogo from 'components/AnimatedLogo'
 
 const NavBar = () => {
 	return (
 		<nav class='navbar navbar-expand-md fixed-top navbar-light'>
 			<div class='container'>
 				<Link to='/' class='navbar-brand'>
-					<img src={logo} alt='' />
+					<AnimatedLogo />
+					<img src={Logo} alt='' />
 				</Link>
 				<button
 					class='navbar-toggler'
