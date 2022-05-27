@@ -3,7 +3,7 @@ import logo from 'assets/logo.svg'
 
 const NavBar = () => {
 	return (
-		<nav class='navbar navbar-expand-lg navbar-light'>
+		<nav class='navbar navbar-expand-md fixed-top navbar-light'>
 			<div class='container'>
 				<Link to='/' class='navbar-brand'>
 					<img src={logo} alt='' />

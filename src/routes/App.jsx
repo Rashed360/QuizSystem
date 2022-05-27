@@ -6,7 +6,9 @@ const App = () => {
 	return (
 		<>
 			<NavBar />
-			<Outlet />
+			<div className='marginTop'>
+				<Outlet />
+			</div>
 			<Footer />
 		</>
 	)
