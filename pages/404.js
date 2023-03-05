@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
 const NoMatch = () => {
-	const navigate = useNavigate()
+	const router = useRouter()
 	return (
 		<div className='centerAlign'>
-			<button className='btn' onClick={() => navigate(-1)}>
+			<button className='btn' onClick={() => router.back()}>
 				404 😟 Go-Back
 			</button>
 		</div>

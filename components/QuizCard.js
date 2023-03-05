@@ -1,12 +1,12 @@
 import { FaCheck, FaStar, FaRegEye } from 'react-icons/fa'
-
-import sample from 'assets/sample.png'
+import Image from 'next/image'
+import sample from '../assets/sample.png'
 
 const QuizCard = () => {
 	return (
 		<div className='quizCard'>
 			<div className='image'>
-				<img src={sample} alt='' />
+				<Image src={sample} alt='' />
 			</div>
 			<div className='details'>
 				<h5>Are you smarter than world's smartest ape?</h5>

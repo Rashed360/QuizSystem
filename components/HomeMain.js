@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { FaPlus, FaArrowRight } from 'react-icons/fa'
 import QuizCard from './QuizCard'
 
@@ -17,7 +17,7 @@ const HomeMain = () => {
 							<form>
 								<div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>
 									<div class='btn-group me-2'>
-										<Link className='btn btn-info' to='create'>
+										<Link href='/create' className='btn btn-info'>
 											<FaPlus /> Create
 										</Link>
 									</div>

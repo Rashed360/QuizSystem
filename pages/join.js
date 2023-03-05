@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Logo from 'assets/logoText.svg'
-import AnimatedLogo from 'components/AnimatedLogo'
+import Link from 'next/link'
+import Logo from '../assets/logoText.svg'
+import AnimatedLogo from '../components/AnimatedLogo'
+import Image from 'next/image'
 
 const JoinNow = () => {
 	const [showForm, setShowForm] = useState(true)
@@ -14,9 +15,9 @@ const JoinNow = () => {
 				{showForm && (
 					<>
 						<div class='mb-3'>
-							<Link to='/' class='navbar-brand'>
+							<Link href='/' class='navbar-brand'>
 								<AnimatedLogo />
-								<img src={Logo} alt='' />
+								<Image src={Logo} alt='' />
 								Login
 							</Link>
 						</div>
@@ -46,9 +47,9 @@ const JoinNow = () => {
 				{!showForm && (
 					<>
 						<div class='mb-3'>
-							<Link to='/' class='navbar-brand'>
+							<Link href='/' class='navbar-brand'>
 								<AnimatedLogo />
-								<img src={Logo} alt='' />
+								<Image src={Logo} alt='' />
 								SignUp
 							</Link>
 						</div>
