@@ -1,4 +1,4 @@
-/* Inputs */
+/* Input Focus */
 .btn-check:focus + .btn,
 .btn:focus,
 textarea:focus,
@@ -70,6 +70,9 @@ input[type='number']:focus,
 .btn-danger {
 	background-color: var(--danger);
 }
+.btn-secondary {
+	color: #ffffff;
+}
 .btn:hover {
 	color: #556272;
 	border: 1px solid #556272;
@@ -91,4 +94,12 @@ input[type='number']:focus,
 }
 .btn-danger:hover {
 	background-color: #c03641;
+}
+.btn-secondary:hover {
+	color: #f8f8f8;
+}
+/* Inputs */
+textarea.form-control,
+input.form-control {
+	padding: 10px 15px;
 }

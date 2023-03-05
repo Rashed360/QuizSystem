@@ -1,8 +1,19 @@
-import Link from 'next/link'
+import { useState } from 'react'
 import { FaPlus, FaArrowRight } from 'react-icons/fa'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import QuizCard from './QuizCard'
 
 const HomeMain = () => {
+	const [quizId, setQuizId] = useState('')
+	const router = useRouter()
+	function attendQuiz(e) {
+		e.preventDefault()
+		if (quizId) {
+			router.push(`/attend/${quizId}`)
+		}
+	}
+
 	return (
 		<div className='col-lg-9'>
 			<div className='row homepage-main'>
@@ -15,15 +26,21 @@ const HomeMain = () => {
 								<br /> Create quizes and share with others! Happy Knowledge sharing!
 							</p>
 							<form>
-								<div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>
-									<div class='btn-group me-2'>
+								<div className='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>
+									<div className='btn-group me-2'>
 										<Link href='/create' className='btn btn-info'>
 											<FaPlus /> Create
 										</Link>
 									</div>
-									<div class='input-group'>
-										<input type='text' class='form-control' placeholder='Enter quiz-key' />
-										<button class='btn btn-success' id='basic-addon2'>
+									<div className='input-group'>
+										<input
+											type='text'
+											className='form-control'
+											placeholder='Enter quiz-key'
+											value={quizId}
+											onChange={e => setQuizId(e.target.value)}
+										/>
+										<button className='btn btn-success' onClick={e => attendQuiz(e)}>
 											Attend <FaArrowRight />
 										</button>
 									</div>
