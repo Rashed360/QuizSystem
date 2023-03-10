@@ -19,7 +19,7 @@ const CreateQuiz = () => {
 							<form>
 								<div className='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>
 									<div className='btn-group me-2'>
-										<Link href='/create' className='btn btn-info'>
+										<Link href='/q/kjnb-ytde-astq' className='btn btn-info'>
 											<BsShare /> Share Link
 										</Link>
 									</div>
@@ -27,7 +27,7 @@ const CreateQuiz = () => {
 										<input
 											type='text'
 											className='form-control'
-											value='kjnb-ytde-astq'
+											defaultValue='kjnb-ytde-astq'
 											placeholder='Quiz-key'
 										/>
 										<button className='btn btn-success'>
