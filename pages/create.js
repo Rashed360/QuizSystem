@@ -7,27 +7,25 @@ import { GrLinkDown, GrTrash } from 'react-icons/gr'
 
 const CreateQuiz = () => {
 	const router = useRouter()
+	const [activeQues, setActiveQues] = useState(0)
 	const [question, setQuestion] = useState({
 		image: '',
 		title: 'Quiz Title',
 		description: 'Quiz Description',
 		questions: [
 			{
-				id: 1,
 				title: 'Question Title',
 				description: 'Question Description (Optional)',
 				type: 'short',
 				options: [],
 			},
 			{
-				id: 2,
 				title: 'Question Title',
 				description: 'Question Description (Optional)',
 				type: 'long',
 				options: [],
 			},
 			{
-				id: 3,
 				title: 'Question Title',
 				description: 'Question Description (Optional)',
 				type: 'mcq',
@@ -43,7 +41,6 @@ const CreateQuiz = () => {
 				],
 			},
 			{
-				id: 4,
 				title: 'Question Title',
 				description: 'Question Description (Optional)',
 				type: 'trfl',
@@ -60,6 +57,21 @@ const CreateQuiz = () => {
 			},
 		],
 	})
+
+	const handleAdd = () => {
+		setQuestion({
+			...question,
+			questions: [
+				...question.questions,
+				{
+					title: 'Question Title',
+					description: 'Question Description (Optional)',
+					type: 'short',
+					options: [],
+				},
+			],
+		})
+	}
 
 	return (
 		<Layout>
@@ -78,15 +90,15 @@ const CreateQuiz = () => {
 						</div>
 
 						{question.questions.map((itm, idx) => (
-							<div className={`question ${itm.type} my-3`} key={idx}>
+							<div className={`question ${itm.type} my-3`} key={idx} onClick={() => setActiveQues(idx)}>
 								<h3>{itm.title}</h3>
 								<p>{itm.description}</p>
-								<Options type={itm.type} data={itm.options} />
+								<Options item={itm} idx={idx} active={activeQues} ques={question} sQues={setQuestion} />
 							</div>
 						))}
 
 						<div className='add-questions'>
-							<button className='btn btn-success me-2'>
+							<button className='btn btn-success me-2' onClick={handleAdd}>
 								Add Question <GrLinkDown />
 							</button>
 							<button className='btn btn-secondary' onClick={() => router.push('/publish')}>
@@ -102,10 +114,12 @@ const CreateQuiz = () => {
 	)
 }
 
-const Options = ({ type, data }) => {
+const Options = ({ item, idx, active, ques, sQues }) => {
+	const type = item.type
+	const data = item.options
 	return (
 		<div className='options'>
-			<OptionToolbar optionType={type} />
+			{idx === active && <OptionToolbar optionType={type} id={idx} ques={ques} sQues={sQues} />}
 
 			{data && (
 				<div className='current-options mt-2'>
@@ -134,11 +148,19 @@ const Options = ({ type, data }) => {
 	)
 }
 
-const OptionToolbar = ({ optionType }) => {
+const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 	const defaultValues = () => {
 		if (optionType === 'mcq') return 'Multiple Choice'
 		else if (optionType === 'trfl') return 'True/False'
 		else return ''
+	}
+	const handleDelete = () => {
+		const newQuestions = [...ques.questions]
+		newQuestions.splice(id, 1)
+		sQues({
+			...ques,
+			questions: newQuestions,
+		})
 	}
 	return (
 		<div className='btn-toolbar add-option'>
@@ -156,7 +178,7 @@ const OptionToolbar = ({ optionType }) => {
 			<button className='btn btn-info mx-2'>
 				Add Option <GrLinkDown />
 			</button>
-			<button className='btn btn-danger'>
+			<button className='btn btn-danger' onClick={handleDelete}>
 				<GrTrash />
 			</button>
 		</div>
