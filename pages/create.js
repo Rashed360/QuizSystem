@@ -2,8 +2,7 @@ import { useState } from 'react'
 import Layout from '../components/Layout'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { BsPlusLg, BsCheckLg } from 'react-icons/bs'
-import { GrLinkDown, GrTrash } from 'react-icons/gr'
+import { PlusIcon, TickIcon, DownIcon, DeleteIcon } from '../assets/Icons'
 
 const CreateQuiz = () => {
 	const router = useRouter()
@@ -99,10 +98,10 @@ const CreateQuiz = () => {
 
 						<div className='add-questions'>
 							<button className='btn btn-success me-2' onClick={handleAdd}>
-								Add Question <GrLinkDown />
+								Add Question <PlusIcon />
 							</button>
-							<button className='btn btn-secondary' onClick={() => router.push('/publish')}>
-								<BsCheckLg /> Publish Quiz
+							<button className='btn btn-dark text-light' onClick={() => router.push('/publish')}>
+								<TickIcon /> Publish Quiz
 							</button>
 						</div>
 
@@ -172,14 +171,14 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 					defaultValue={defaultValues()}
 				/>
 				<button className='btn btn-warning'>
-					Select Type <BsPlusLg />
+					Select Type <DownIcon />
 				</button>
 			</div>
 			<button className='btn btn-info mx-2'>
-				Add Option <GrLinkDown />
+				Add Option <PlusIcon />
 			</button>
 			<button className='btn btn-danger' onClick={handleDelete}>
-				<GrTrash />
+				<DeleteIcon />
 			</button>
 		</div>
 	)
