@@ -184,6 +184,54 @@
 	margin: 20px 0 30px 0;
 }
 
+/* Custom Inputs */
+.input-container {
+	position: relative;
+	background-color: #f3f3f3;
+	border-radius: 10px;
+
+	&:first-child {
+		margin-bottom: 10px;
+	}
+	input[type='checkbox'],
+	input[type='radio'] {
+		appearance: none;
+		&::after {
+			position: absolute;
+			cursor: pointer;
+			content: '';
+			width: 25px;
+			height: 25px;
+			top: 0;
+			bottom: 0;
+			left: 5px;
+			transform: translateY(40%);
+			background: none;
+			border: 2px solid #556272;
+		}
+	}
+	input[type='checkbox'] {
+		&::after {
+			border-radius: 5px;
+		}
+		&:checked::after {
+			background: #cbf46a;
+		}
+	}
+	input[type='radio'] {
+		&::after {
+			border-radius: 50%;
+		}
+		&:checked::after {
+			background: #cbf46a;
+		}
+	}
+	label {
+		margin-left: 40px;
+		padding: 10px 0;
+	}
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
 	.quizCard {

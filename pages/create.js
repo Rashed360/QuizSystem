@@ -124,14 +124,14 @@ const Options = ({ item, idx, active, ques, sQues }) => {
 				<div className='current-options mt-2'>
 					{type === 'mcq' ? (
 						data.map((itm, idx) => (
-							<div key={idx}>
+							<div key={idx} className='input-container'>
 								<input type='checkbox' name={itm.name} />
 								<label htmlFor={itm.name}>{itm.title}</label>
 							</div>
 						))
 					) : type === 'trfl' ? (
 						data.map((itm, idx) => (
-							<div key={idx}>
+							<div key={idx} className='input-container'>
 								<input type='radio' name={itm.name} />
 								<label htmlFor=''>{itm.title}</label>
 							</div>
