@@ -197,39 +197,52 @@
 	input[type='checkbox'],
 	input[type='radio'] {
 		appearance: none;
-		&::after {
+		&::before {
 			position: absolute;
 			cursor: pointer;
 			content: '';
-			width: 25px;
-			height: 25px;
-			top: 0;
-			bottom: 0;
-			left: 10px;
-			transform: translateY(40%);
+			width: 30px;
+			height: 30px;
+			inset: 8px;
 			background: none;
-			border: 2px solid #556272;
+			border: 1px solid #cccccc;
+		}
+		&:checked::before {
+			background: #92f6f1;
+			border-color: #556272;
 		}
 	}
 	input[type='checkbox'] {
-		&::after {
+		&::before {
 			border-radius: 5px;
 		}
 		&:checked::after {
-			background: #cbf46a;
+			position: absolute;
+			content: '';
+			width: 18px;
+			height: 16px;
+			inset: 14px;
+			top: 16px;
+			background: url(../assets/checkMark.svg);
 		}
 	}
 	input[type='radio'] {
-		&::after {
+		&::before {
 			border-radius: 50%;
 		}
 		&:checked::after {
-			background: #cbf46a;
+			position: absolute;
+			content: '';
+			width: 14px;
+			height: 14px;
+			inset: 16px;
+			background-color: #556272;
+			border-radius: 50%;
 		}
 	}
 	label {
-		margin-left: 45px;
-		padding: 10px 0;
+		margin-left: 50px;
+		padding: 11px 0;
 		color: #556272;
 	}
 }
