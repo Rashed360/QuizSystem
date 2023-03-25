@@ -52,6 +52,10 @@ const CreateQuiz = () => {
 						title: 'Option Title (False)',
 						name: 'trfl',
 					},
+					{
+						title: 'Option Title (False)',
+						name: 'trfl',
+					},
 				],
 			},
 		],
