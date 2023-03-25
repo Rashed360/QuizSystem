@@ -167,6 +167,50 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 	}
 	return (
 		<div className='btn-toolbar add-option'>
+			<div className='option-toolbar'>
+				<section>
+					<label>Written Questions</label>
+					<div className='categories'>
+						<PlusIcon /> <span>Short Question</span>
+					</div>
+					<div className='categories'>
+						<PlusIcon /> <span>Short Question</span>
+					</div>
+				</section>
+				<section>
+					<label>Multiple Choice</label>
+					<div className='categories'>
+						<PlusIcon /> <span>Multiple Answer</span>
+					</div>
+					<div className='categories'>
+						<PlusIcon /> <span>Single Answer</span>
+					</div>
+					<div className='categories'>
+						<PlusIcon /> <span>Dropdown</span>
+					</div>
+				</section>
+				<section>
+					<label>File Upload</label>
+					<div className='categories'>
+						<PlusIcon /> <span>Any File</span>
+					</div>
+					<div className='categories'>
+						<PlusIcon /> <span>Documents</span>
+					</div>
+					<div className='categories'>
+						<PlusIcon /> <span>Images</span>
+					</div>
+				</section>
+				<section>
+					<label>Scales</label>
+					<div className='categories'>
+						<PlusIcon /> <span>Linear Scale</span>
+					</div>
+					<div className='categories'>
+						<PlusIcon /> <span>Ratio Scale</span>
+					</div>
+				</section>
+			</div>
 			<div className='input-group'>
 				<input
 					type='text'
