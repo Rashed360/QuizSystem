@@ -152,10 +152,87 @@ const Options = ({ item, idx, active, ques, sQues }) => {
 }
 
 const OptionToolbar = ({ optionType, id, ques, sQues }) => {
+	const [toolbar, setToolbar] = useState(false)
+	const categories = [
+		{
+			title: 'Written Questions',
+			options: [
+				{
+					title: 'Short Question',
+					type: 'short',
+					icon: <PlusIcon />,
+				},
+				{
+					title: 'Long Question',
+					type: 'long',
+					icon: <PlusIcon />,
+				},
+			],
+		},
+		{
+			title: 'Multiple Choice',
+			options: [
+				{
+					title: 'Multiple Answer',
+					type: '',
+					icon: <PlusIcon />,
+				},
+				{
+					title: 'Single Answer',
+					type: '',
+					icon: <PlusIcon />,
+				},
+				{
+					title: 'Dropdown',
+					type: '',
+					icon: <PlusIcon />,
+				},
+			],
+		},
+		{
+			title: 'File Upload',
+			options: [
+				{
+					title: 'Any File',
+					type: '',
+					icon: <PlusIcon />,
+				},
+				{
+					title: 'Documents',
+					type: '',
+					icon: <PlusIcon />,
+				},
+				{
+					title: 'Images',
+					type: '',
+					icon: <PlusIcon />,
+				},
+			],
+		},
+		{
+			title: 'Scales',
+			options: [
+				{
+					title: 'Linear Scale',
+					type: '',
+					icon: <PlusIcon />,
+				},
+				{
+					title: 'Ratio Scale',
+					type: '',
+					icon: <PlusIcon />,
+				},
+			],
+		},
+	]
 	const defaultValues = () => {
 		if (optionType === 'mcq') return 'Multiple Choice'
 		else if (optionType === 'trfl') return 'True/False'
 		else return ''
+	}
+	const toggleOptionsToolbar = () => {
+		setToolbar(!toolbar)
+		//TODO: add propagation functions
 	}
 	const handleDelete = () => {
 		const newQuestions = [...ques.questions]
@@ -167,56 +244,28 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 	}
 	return (
 		<div className='btn-toolbar add-option'>
-			<div className='option-toolbar'>
-				<section>
-					<label>Written Questions</label>
-					<div className='categories'>
-						<PlusIcon /> <span>Short Question</span>
-					</div>
-					<div className='categories'>
-						<PlusIcon /> <span>Short Question</span>
-					</div>
-				</section>
-				<section>
-					<label>Multiple Choice</label>
-					<div className='categories'>
-						<PlusIcon /> <span>Multiple Answer</span>
-					</div>
-					<div className='categories'>
-						<PlusIcon /> <span>Single Answer</span>
-					</div>
-					<div className='categories'>
-						<PlusIcon /> <span>Dropdown</span>
-					</div>
-				</section>
-				<section>
-					<label>File Upload</label>
-					<div className='categories'>
-						<PlusIcon /> <span>Any File</span>
-					</div>
-					<div className='categories'>
-						<PlusIcon /> <span>Documents</span>
-					</div>
-					<div className='categories'>
-						<PlusIcon /> <span>Images</span>
-					</div>
-				</section>
-				<section>
-					<label>Scales</label>
-					<div className='categories'>
-						<PlusIcon /> <span>Linear Scale</span>
-					</div>
-					<div className='categories'>
-						<PlusIcon /> <span>Ratio Scale</span>
-					</div>
-				</section>
-			</div>
-			<div className='input-group'>
+			{toolbar && (
+				<div className='option-toolbar'>
+					{categories.map((itm, idx) => (
+						<section key={idx}>
+							<label>{itm.title}</label>
+							{itm.options.map((item, index) => (
+								<div className='categories' key={index}>
+									{item.icon} <span>{item.title}</span>
+								</div>
+							))}
+						</section>
+					))}
+				</div>
+			)}
+			<div className='input-group' onClick={toggleOptionsToolbar}>
 				<input
 					type='text'
 					className='form-control'
 					placeholder='Options Type'
 					defaultValue={defaultValues()}
+					readOnly
+					style={{ cursor: 'pointer' }}
 				/>
 				<button className='btn btn-warning'>
 					Select Type <DownIcon />
