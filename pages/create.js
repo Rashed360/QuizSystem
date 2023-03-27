@@ -3,6 +3,18 @@ import Layout from '../components/Layout'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { PlusIcon, TickIcon, DownIcon, DeleteIcon } from '../assets/Icons'
+import {
+	ShortIcon,
+	LongIcon,
+	McqIcon,
+	TrflIcon,
+	DropIcon,
+	FileIcon,
+	DocIcon,
+	ImgIcon,
+	LinearIcon,
+	RatioIcon,
+} from '../assets/Icons'
 
 const CreateQuiz = () => {
 	const router = useRouter()
@@ -160,12 +172,12 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 				{
 					title: 'Short Question',
 					type: 'short',
-					icon: <PlusIcon />,
+					icon: <ShortIcon />,
 				},
 				{
 					title: 'Long Question',
 					type: 'long',
-					icon: <PlusIcon />,
+					icon: <LongIcon />,
 				},
 			],
 		},
@@ -175,17 +187,17 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 				{
 					title: 'Multiple Answer',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <McqIcon />,
 				},
 				{
 					title: 'Single Answer',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <TrflIcon />,
 				},
 				{
 					title: 'Dropdown',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <DropIcon />,
 				},
 			],
 		},
@@ -195,17 +207,17 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 				{
 					title: 'Any File',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <FileIcon />,
 				},
 				{
 					title: 'Documents',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <DocIcon />,
 				},
 				{
 					title: 'Images',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <ImgIcon />,
 				},
 			],
 		},
@@ -215,12 +227,12 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 				{
 					title: 'Linear Scale',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <LinearIcon />,
 				},
 				{
 					title: 'Ratio Scale',
 					type: '',
-					icon: <PlusIcon />,
+					icon: <RatioIcon />,
 				},
 			],
 		},
