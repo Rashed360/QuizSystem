@@ -3,18 +3,7 @@ import Layout from '../components/Layout'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { PlusIcon, TickIcon, DownIcon, DeleteIcon } from '../assets/Icons'
-import {
-	ShortIcon,
-	LongIcon,
-	McqIcon,
-	TrflIcon,
-	DropIcon,
-	FileIcon,
-	DocIcon,
-	ImgIcon,
-	LinearIcon,
-	RatioIcon,
-} from '../assets/Icons'
+import QUESTION_TYPES from '../data/questionTypes'
 
 const CreateQuiz = () => {
 	const router = useRouter()
@@ -93,7 +82,6 @@ const CreateQuiz = () => {
 			<div className='container'>
 				<div className='row d-flex justify-content-center'>
 					<div className='col-lg-8 create-quiz'>
-						{/* - */}
 						<div className='image-box'>
 							{question.image && <Image src='' alt='' />}
 							<span>Click to add image</span>
@@ -120,8 +108,6 @@ const CreateQuiz = () => {
 								<TickIcon /> Publish Quiz
 							</button>
 						</div>
-
-						{/* - */}
 					</div>
 				</div>
 			</div>
@@ -165,78 +151,7 @@ const Options = ({ item, idx, active, ques, sQues }) => {
 
 const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 	const [toolbar, setToolbar] = useState(false)
-	const categories = [
-		{
-			title: 'Written Questions',
-			options: [
-				{
-					title: 'Short Question',
-					type: 'short',
-					icon: <ShortIcon />,
-				},
-				{
-					title: 'Long Question',
-					type: 'long',
-					icon: <LongIcon />,
-				},
-			],
-		},
-		{
-			title: 'Multiple Choice',
-			options: [
-				{
-					title: 'Multiple Answer',
-					type: '',
-					icon: <McqIcon />,
-				},
-				{
-					title: 'Single Answer',
-					type: '',
-					icon: <TrflIcon />,
-				},
-				{
-					title: 'Dropdown',
-					type: '',
-					icon: <DropIcon />,
-				},
-			],
-		},
-		{
-			title: 'File Upload',
-			options: [
-				{
-					title: 'Any File',
-					type: '',
-					icon: <FileIcon />,
-				},
-				{
-					title: 'Documents',
-					type: '',
-					icon: <DocIcon />,
-				},
-				{
-					title: 'Images',
-					type: '',
-					icon: <ImgIcon />,
-				},
-			],
-		},
-		{
-			title: 'Scales',
-			options: [
-				{
-					title: 'Linear Scale',
-					type: '',
-					icon: <LinearIcon />,
-				},
-				{
-					title: 'Ratio Scale',
-					type: '',
-					icon: <RatioIcon />,
-				},
-			],
-		},
-	]
+	const categories = QUESTION_TYPES
 	const defaultValues = () => {
 		if (optionType === 'mcq') return 'Multiple Choice'
 		else if (optionType === 'trfl') return 'True/False'
@@ -247,6 +162,14 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 		//TODO: add propagation functions
 	}
 	const handleDelete = () => {
+		const newQuestions = [...ques.questions]
+		newQuestions.splice(id, 1)
+		sQues({
+			...ques,
+			questions: newQuestions,
+		})
+	}
+	const handleTypeChange = () => {
 		const newQuestions = [...ques.questions]
 		newQuestions.splice(id, 1)
 		sQues({
