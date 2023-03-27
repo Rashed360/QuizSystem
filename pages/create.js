@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -151,12 +151,17 @@ const Options = ({ item, idx, active, ques, sQues }) => {
 
 const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 	const [toolbar, setToolbar] = useState(false)
+	const [inputValue, setInputValue] = useState('')
 	const categories = QUESTION_TYPES
-	const defaultValues = () => {
-		if (optionType === 'mcq') return 'Multiple Choice'
-		else if (optionType === 'trfl') return 'True/False'
-		else return ''
-	}
+
+	useEffect(() => {
+		if (optionType === 'mcq') setInputValue('Multiple Choice')
+		else if (optionType === 'trfl') setInputValue('True/False')
+		else if (optionType === 'long') setInputValue('Long Question')
+		else if (optionType === 'short') setInputValue('Short Question')
+		else setInputValue('')
+	}, [optionType])
+
 	const toggleOptionsToolbar = () => {
 		setToolbar(!toolbar)
 		//TODO: add propagation functions
@@ -169,13 +174,16 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 			questions: newQuestions,
 		})
 	}
-	const handleTypeChange = () => {
+	const handleTypeChange = type => {
 		const newQuestions = [...ques.questions]
-		newQuestions.splice(id, 1)
+		const updatedType = { ...ques.questions[id], options: [], type }
+
+		newQuestions.splice(id, 1, updatedType)
 		sQues({
 			...ques,
 			questions: newQuestions,
 		})
+		toggleOptionsToolbar()
 	}
 	return (
 		<div className='btn-toolbar add-option'>
@@ -185,7 +193,7 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 						<section key={idx}>
 							<label>{itm.title}</label>
 							{itm.options.map((item, index) => (
-								<div className='categories' key={index}>
+								<div className='categories' key={index} onClick={() => handleTypeChange(item.type)}>
 									{item.icon} <span>{item.title}</span>
 								</div>
 							))}
@@ -198,7 +206,7 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 					type='text'
 					className='form-control'
 					placeholder='Options Type'
-					defaultValue={defaultValues()}
+					value={inputValue}
 					readOnly
 					style={{ cursor: 'pointer' }}
 				/>

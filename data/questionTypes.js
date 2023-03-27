@@ -32,17 +32,17 @@ const QUESTION_TYPES = [
 		options: [
 			{
 				title: 'Multiple Answer',
-				type: '',
+				type: 'mcq',
 				icon: <McqIcon />,
 			},
 			{
 				title: 'Single Answer',
-				type: '',
+				type: 'trfl',
 				icon: <TrflIcon />,
 			},
 			{
 				title: 'Dropdown',
-				type: '',
+				type: 'drop',
 				icon: <DropIcon />,
 			},
 		],
@@ -52,17 +52,17 @@ const QUESTION_TYPES = [
 		options: [
 			{
 				title: 'Any File',
-				type: '',
+				type: 'file',
 				icon: <FileIcon />,
 			},
 			{
 				title: 'Documents',
-				type: '',
+				type: 'doc',
 				icon: <DocIcon />,
 			},
 			{
 				title: 'Images',
-				type: '',
+				type: 'img',
 				icon: <ImgIcon />,
 			},
 		],
@@ -72,12 +72,12 @@ const QUESTION_TYPES = [
 		options: [
 			{
 				title: 'Linear Scale',
-				type: '',
+				type: 'linear',
 				icon: <LinearIcon />,
 			},
 			{
 				title: 'Ratio Scale',
-				type: '',
+				type: 'ratio',
 				icon: <RatioIcon />,
 			},
 		],
