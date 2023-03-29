@@ -1,8 +1,10 @@
 import { FaCheck, FaStar, FaRegEye } from 'react-icons/fa'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import sample from '../assets/sample.png'
 
 const QuizCard = () => {
+	const router = useRouter()
 	return (
 		<div className='quizCard'>
 			<div className='image'>
@@ -16,7 +18,7 @@ const QuizCard = () => {
 				</p>
 				<div className='interaction'>
 					<div className='buttons'>
-						<button className='btn btn-success me-2'>
+						<button className='btn btn-success me-2' onClick={() => router.push('/attend/id')}>
 							<FaCheck /> Attempt
 						</button>
 						<button className='btn btn-info me-2'>

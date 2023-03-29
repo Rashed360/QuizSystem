@@ -80,7 +80,7 @@ const AttendQuiz = () => {
 							<div className={`question ${itm.type} my-3`} key={idx}>
 								<h3>{itm.title}</h3>
 								<p>{itm.description}</p>
-								<Options item={itm} idx={idx} />
+								<Options item={itm} index={idx} ans={answers} setAns={setAnswers} />
 							</div>
 						))}
 
@@ -95,9 +95,14 @@ const AttendQuiz = () => {
 	)
 }
 
-const Options = ({ item, idx }) => {
+const Options = ({ item, index, ans, setAns }) => {
 	const type = item.type
 	const data = item.options
+	const handleChange = e => {
+		const answers = [...ans]
+		answers[index] = e.target.value
+		setAns(answers)
+	}
 	return (
 		<div className='options'>
 			{data && (
@@ -105,21 +110,33 @@ const Options = ({ item, idx }) => {
 					{type === 'mcq' ? (
 						data.map((itm, idx) => (
 							<div key={idx} className='input-container'>
-								<input type='checkbox' name={itm.name} />
+								<input type='checkbox' name={itm.name} value={ans[index] || ''} onChange={handleChange} />
 								<label htmlFor={itm.name}>{itm.title}</label>
 							</div>
 						))
 					) : type === 'trfl' ? (
 						data.map((itm, idx) => (
 							<div key={idx} className='input-container'>
-								<input type='radio' name={itm.name} />
+								<input type='radio' name={itm.name} value={ans[index] || ''} onChange={handleChange} />
 								<label htmlFor=''>{itm.title}</label>
 							</div>
 						))
 					) : type === 'long' ? (
-						<textarea className='form-control' placeholder='Descriptive Answer' rows='5'></textarea>
+						<textarea
+							className='form-control'
+							placeholder='Descriptive Answer'
+							rows='5'
+							value={ans[index] || ''}
+							onChange={handleChange}
+						></textarea>
 					) : (
-						<input type='text' className='form-control' placeholder='Short Answer' />
+						<input
+							type='text'
+							className='form-control'
+							placeholder='Short Answer'
+							value={ans[index] || ''}
+							onChange={handleChange}
+						/>
 					)}
 				</div>
 			)}
