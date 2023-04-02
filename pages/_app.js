@@ -1,14 +1,7 @@
 import '../styles/bootstrap.scss'
 import '../styles/index.scss'
-import { configureStore } from '@reduxjs/toolkit'
-import globalReducer from '../redux'
 import { Provider } from 'react-redux'
-
-const store = configureStore({
-	reducer: {
-		global: globalReducer,
-	},
-})
+import store from '../state/store'
 
 const MyApp = ({ Component, pageProps }) => {
 	return (

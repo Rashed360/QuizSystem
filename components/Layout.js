@@ -5,7 +5,7 @@ import NavBar from './NavBar'
 import Footer from './Footer'
 
 const Layout = ({ children, title }) => {
-	const mode = useSelector(state => state.global.mode)
+	const mode = useSelector(state => state.theme.mode)
 	useEffect(() => {
 		const bodyClass = document.querySelector('body').classList
 		if (mode) {
