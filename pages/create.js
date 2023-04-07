@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { PlusIcon, TickIcon } from '../assets/Icons'
-import { addQuestion } from '../state/question'
-import Layout from '../components/Layout'
+import { PlusIcon, TickIcon } from 'assets/Icons'
+import { addQuestion } from 'state/question'
+import Layout from 'components/Layout'
 import Image from 'next/image'
-import Options from '../components/create/Options'
+import Options from 'components/create/Options'
 
 const CreateQuiz = () => {
 	const router = useRouter()

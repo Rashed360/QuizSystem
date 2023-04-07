@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Logo from '../assets/logoText.svg'
-import AnimatedLogo from '../components/AnimatedLogo'
+import Logo from 'assets/logoText.svg'
+import AnimatedLogo from 'components/AnimatedLogo'
 import Image from 'next/image'
 
 const JoinNow = () => {

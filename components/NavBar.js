@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Logo from '../assets/logoText.svg'
+import Logo from 'assets/logoText.svg'
 import Image from 'next/image'
 import AnimatedLogo from './AnimatedLogo'
 

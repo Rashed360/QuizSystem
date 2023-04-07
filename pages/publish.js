@@ -1,4 +1,4 @@
-import Layout from '../components/Layout'
+import Layout from 'components/Layout'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsShare } from 'react-icons/bs'

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { PlusIcon, DownIcon, DeleteIcon } from '../../assets/Icons'
+import { PlusIcon, DownIcon, DeleteIcon } from 'assets/Icons'
 import { useDispatch } from 'react-redux'
-import { deleteQuestion, changeQuestionType } from '../../state/question'
-import QUESTION_TYPES from '../../data/questionTypes'
+import { deleteQuestion, changeQuestionType } from 'state/question'
+import QUESTION_TYPES from 'data/questionTypes'
 
 const OptionToolbar = ({ optionType, id }) => {
 	const [toolbar, setToolbar] = useState(false)

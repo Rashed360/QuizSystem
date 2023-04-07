@@ -9,7 +9,7 @@ import {
 	ImgIcon,
 	LinearIcon,
 	RatioIcon,
-} from '../assets/Icons'
+} from 'assets/Icons'
 
 const QUESTION_TYPES = [
 	{

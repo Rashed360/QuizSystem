@@ -1,7 +1,7 @@
 import { FaCheck, FaStar, FaRegEye } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import sample from '../assets/sample.png'
+import sample from 'assets/sample.png'
 
 const QuizCard = () => {
 	const router = useRouter()

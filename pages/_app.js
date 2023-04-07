@@ -1,7 +1,7 @@
-import '../styles/bootstrap.scss'
-import '../styles/index.scss'
+import 'styles/bootstrap.scss'
+import 'styles/index.scss'
 import { Provider } from 'react-redux'
-import store from '../state/store'
+import store from 'state/store'
 
 const MyApp = ({ Component, pageProps }) => {
 	return (
