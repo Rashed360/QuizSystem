@@ -3,33 +3,15 @@ import Layout from '../components/Layout'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { PlusIcon, TickIcon, DownIcon, DeleteIcon } from '../assets/Icons'
-import QUESTION_TYPES from '../data/questionTypes'
-
 import { useSelector, useDispatch } from 'react-redux'
 import { addQuestion, deleteQuestion, changeQuestionType } from '../state/question'
+import QUESTION_TYPES from '../data/questionTypes'
 
 const CreateQuiz = () => {
 	const router = useRouter()
 	const dispatch = useDispatch()
 	const [activeQues, setActiveQues] = useState(0)
-	// const [question, setQuestion] = useState()
 	const question = useSelector(state => state.question)
-
-	const handleAdd = () => {
-		dispatch(addQuestion())
-		// setQuestion({
-		// 	...question,
-		// 	questions: [
-		// 		...question.questions,
-		// 		{
-		// 			title: 'Question Title',
-		// 			description: 'Question Description (Optional)',
-		// 			type: 'short',
-		// 			options: [],
-		// 		},
-		// 	],
-		// })
-	}
 
 	return (
 		<Layout>
@@ -51,7 +33,6 @@ const CreateQuiz = () => {
 								<div className={`question ${itm.type} my-3`} key={idx} onClick={() => setActiveQues(idx)}>
 									<h3>{itm.title}</h3>
 									<p>{itm.description}</p>
-									{/* <Options item={itm} idx={idx} active={activeQues} ques={question} sQues={setQuestion} /> */}
 									<Options item={itm} idx={idx} active={activeQues} />
 								</div>
 							))
@@ -60,7 +41,7 @@ const CreateQuiz = () => {
 						)}
 
 						<div className='add-questions'>
-							<button className='btn btn-success me-2' onClick={handleAdd}>
+							<button className='btn btn-success me-2' onClick={() => dispatch(addQuestion())}>
 								Add Question <PlusIcon />
 							</button>
 							<button className='btn btn-dark text-light' onClick={() => router.push('/publish')}>
@@ -74,13 +55,11 @@ const CreateQuiz = () => {
 	)
 }
 
-// const Options = ({ item, idx, active, ques, sQues }) => {
 const Options = ({ item, idx, active }) => {
 	const type = item.type
 	const data = item.options
 	return (
 		<div className='options'>
-			{/* {idx === active && <OptionToolbar optionType={type} id={idx} ques={ques} sQues={sQues} />} */}
 			{idx === active && <OptionToolbar optionType={type} id={idx} />}
 
 			{data && (
@@ -110,7 +89,6 @@ const Options = ({ item, idx, active }) => {
 	)
 }
 
-// const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 const OptionToolbar = ({ optionType, id }) => {
 	const [toolbar, setToolbar] = useState(false)
 	const [inputValue, setInputValue] = useState('')
@@ -125,29 +103,9 @@ const OptionToolbar = ({ optionType, id }) => {
 		else setInputValue('')
 	}, [optionType])
 
-	const toggleOptionsToolbar = () => {
-		setToolbar(!toolbar)
-		//TODO: add propagation functions
-	}
-	const handleDelete = () => {
-		dispatch(deleteQuestion(id))
-		// const newQuestions = [...ques.questions]
-		// newQuestions.splice(id, 1)
-		// sQues({
-		// 	...ques,
-		// 	questions: newQuestions,
-		// })
-	}
+	const toggleOptionsToolbar = () => setToolbar(!toolbar)
 	const handleTypeChange = type => {
 		dispatch(changeQuestionType({ id, type }))
-		// const newQuestions = [...ques.questions]
-		// const updatedType = { ...ques.questions[id], options: [], type }
-
-		// newQuestions.splice(id, 1, updatedType)
-		// sQues({
-		// 	...ques,
-		// 	questions: newQuestions,
-		// })
 		toggleOptionsToolbar()
 	}
 	return (
@@ -182,7 +140,7 @@ const OptionToolbar = ({ optionType, id }) => {
 			<button className='btn btn-info mx-2'>
 				Add Option <PlusIcon />
 			</button>
-			<button className='btn btn-danger' onClick={handleDelete}>
+			<button className='btn btn-danger' onClick={() => dispatch(deleteQuestion(id))}>
 				<DeleteIcon />
 			</button>
 		</div>
