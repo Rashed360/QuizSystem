@@ -5,76 +5,30 @@ import { useRouter } from 'next/router'
 import { PlusIcon, TickIcon, DownIcon, DeleteIcon } from '../assets/Icons'
 import QUESTION_TYPES from '../data/questionTypes'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { addQuestion, deleteQuestion, changeQuestionType } from '../state/question'
+
 const CreateQuiz = () => {
 	const router = useRouter()
+	const dispatch = useDispatch()
 	const [activeQues, setActiveQues] = useState(0)
-	const [question, setQuestion] = useState({
-		image: '',
-		title: 'Quiz Title',
-		description: 'Quiz Description',
-		questions: [
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'short',
-				options: [],
-			},
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'long',
-				options: [],
-			},
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'mcq',
-				options: [
-					{
-						title: 'Choice One Title',
-						name: 'one',
-					},
-					{
-						title: 'Choice Two Title',
-						name: 'two',
-					},
-				],
-			},
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'trfl',
-				options: [
-					{
-						title: 'Option Title (True)',
-						name: 'trfl',
-					},
-					{
-						title: 'Option Title (False)',
-						name: 'trfl',
-					},
-					{
-						title: 'Option Title (False)',
-						name: 'trfl',
-					},
-				],
-			},
-		],
-	})
+	// const [question, setQuestion] = useState()
+	const question = useSelector(state => state.question)
 
 	const handleAdd = () => {
-		setQuestion({
-			...question,
-			questions: [
-				...question.questions,
-				{
-					title: 'Question Title',
-					description: 'Question Description (Optional)',
-					type: 'short',
-					options: [],
-				},
-			],
-		})
+		dispatch(addQuestion())
+		// setQuestion({
+		// 	...question,
+		// 	questions: [
+		// 		...question.questions,
+		// 		{
+		// 			title: 'Question Title',
+		// 			description: 'Question Description (Optional)',
+		// 			type: 'short',
+		// 			options: [],
+		// 		},
+		// 	],
+		// })
 	}
 
 	return (
@@ -92,13 +46,18 @@ const CreateQuiz = () => {
 							<p>{question.description}</p>
 						</div>
 
-						{question.questions.map((itm, idx) => (
-							<div className={`question ${itm.type} my-3`} key={idx} onClick={() => setActiveQues(idx)}>
-								<h3>{itm.title}</h3>
-								<p>{itm.description}</p>
-								<Options item={itm} idx={idx} active={activeQues} ques={question} sQues={setQuestion} />
-							</div>
-						))}
+						{question.questions.length !== 0 ? (
+							question.questions.map((itm, idx) => (
+								<div className={`question ${itm.type} my-3`} key={idx} onClick={() => setActiveQues(idx)}>
+									<h3>{itm.title}</h3>
+									<p>{itm.description}</p>
+									{/* <Options item={itm} idx={idx} active={activeQues} ques={question} sQues={setQuestion} /> */}
+									<Options item={itm} idx={idx} active={activeQues} />
+								</div>
+							))
+						) : (
+							<p>Loading...</p>
+						)}
 
 						<div className='add-questions'>
 							<button className='btn btn-success me-2' onClick={handleAdd}>
@@ -115,12 +74,14 @@ const CreateQuiz = () => {
 	)
 }
 
-const Options = ({ item, idx, active, ques, sQues }) => {
+// const Options = ({ item, idx, active, ques, sQues }) => {
+const Options = ({ item, idx, active }) => {
 	const type = item.type
 	const data = item.options
 	return (
 		<div className='options'>
-			{idx === active && <OptionToolbar optionType={type} id={idx} ques={ques} sQues={sQues} />}
+			{/* {idx === active && <OptionToolbar optionType={type} id={idx} ques={ques} sQues={sQues} />} */}
+			{idx === active && <OptionToolbar optionType={type} id={idx} />}
 
 			{data && (
 				<div className='current-options mt-2'>
@@ -149,10 +110,12 @@ const Options = ({ item, idx, active, ques, sQues }) => {
 	)
 }
 
-const OptionToolbar = ({ optionType, id, ques, sQues }) => {
+// const OptionToolbar = ({ optionType, id, ques, sQues }) => {
+const OptionToolbar = ({ optionType, id }) => {
 	const [toolbar, setToolbar] = useState(false)
 	const [inputValue, setInputValue] = useState('')
 	const categories = QUESTION_TYPES
+	const dispatch = useDispatch()
 
 	useEffect(() => {
 		if (optionType === 'mcq') setInputValue('Multiple Choice')
@@ -167,22 +130,24 @@ const OptionToolbar = ({ optionType, id, ques, sQues }) => {
 		//TODO: add propagation functions
 	}
 	const handleDelete = () => {
-		const newQuestions = [...ques.questions]
-		newQuestions.splice(id, 1)
-		sQues({
-			...ques,
-			questions: newQuestions,
-		})
+		dispatch(deleteQuestion(id))
+		// const newQuestions = [...ques.questions]
+		// newQuestions.splice(id, 1)
+		// sQues({
+		// 	...ques,
+		// 	questions: newQuestions,
+		// })
 	}
 	const handleTypeChange = type => {
-		const newQuestions = [...ques.questions]
-		const updatedType = { ...ques.questions[id], options: [], type }
+		dispatch(changeQuestionType({ id, type }))
+		// const newQuestions = [...ques.questions]
+		// const updatedType = { ...ques.questions[id], options: [], type }
 
-		newQuestions.splice(id, 1, updatedType)
-		sQues({
-			...ques,
-			questions: newQuestions,
-		})
+		// newQuestions.splice(id, 1, updatedType)
+		// sQues({
+		// 	...ques,
+		// 	questions: newQuestions,
+		// })
 		toggleOptionsToolbar()
 	}
 	return (
