@@ -1,6 +1,6 @@
 import Layout from 'components/Layout'
-import HomeMain from 'components/HomeMain'
-import HomeSide from 'components/HomeSide'
+import HomeMain from 'components/home/HomeMain'
+import HomeSide from 'components/home/HomeSide'
 
 const Homepage = () => {
 	return (

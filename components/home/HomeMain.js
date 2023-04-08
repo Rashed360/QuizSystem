@@ -3,15 +3,14 @@ import { FaPlus, FaArrowRight } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import QuizCard from './QuizCard'
+import FETCHED_QUESTIONS from 'data/mockQuestions'
 
 const HomeMain = () => {
 	const [quizId, setQuizId] = useState('')
 	const router = useRouter()
 	function attendQuiz(e) {
 		e.preventDefault()
-		if (quizId) {
-			router.push(`/attend/${quizId}`)
-		}
+		if (quizId) router.push(`/attend/${quizId}`)
 	}
 
 	return (
@@ -50,9 +49,9 @@ const HomeMain = () => {
 						<section className='content-section'>
 							<h3>Popular public quizes</h3>
 							<div className='quiz-cards'>
-								<QuizCard />
-								<QuizCard />
-								<QuizCard />
+								{FETCHED_QUESTIONS.map((itm, idx) => (
+									<QuizCard key={idx} question={itm} />
+								))}
 							</div>
 						</section>
 					</div>
