@@ -2,93 +2,44 @@ import { useState } from 'react'
 import Layout from '../../components/Layout'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import FETCHED_QUESTIONS from 'data/mockQuestions'
 
 const AttendQuiz = () => {
 	const { query } = useRouter()
 	const quizId = query.quizId
 	const [answers, setAnswers] = useState([])
-	const question = {
-		image: '',
-		title: 'Quiz Title',
-		description: 'Quiz Description',
-		questions: [
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'short',
-				options: [],
-			},
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'long',
-				options: [],
-			},
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'mcq',
-				options: [
-					{
-						title: 'Choice One Title',
-						name: 'one',
-					},
-					{
-						title: 'Choice Two Title',
-						name: 'two',
-					},
-				],
-			},
-			{
-				title: 'Question Title',
-				description: 'Question Description (Optional)',
-				type: 'trfl',
-				options: [
-					{
-						title: 'Option Title (True)',
-						name: 'trfl',
-					},
-					{
-						title: 'Option Title (False)',
-						name: 'trfl',
-					},
-					{
-						title: 'Option Title (False)',
-						name: 'trfl',
-					},
-				],
-			},
-		],
-	}
+	const question = FETCHED_QUESTIONS.find(itm => itm._id === quizId)
 
 	return (
 		<Layout>
 			<div className='container'>
 				<div className='row d-flex justify-content-center'>
-					<div className='col-lg-8 create-quiz'>
-						<div className='image-box'>
-							{question.image && <Image src='' alt='' />}
-							<span>{quizId}</span>
-						</div>
-
-						<div className='quiz-header'>
-							<h1>{question.title}</h1>
-							<p>{question.description}</p>
-						</div>
-
-						{question.questions.map((itm, idx) => (
-							<div className={`question ${itm.type} my-3`} key={idx}>
-								<h3>{itm.title}</h3>
-								<p>{itm.description}</p>
-								<Options item={itm} index={idx} ans={answers} setAns={setAnswers} />
+					{question && (
+						<div className='col-lg-8 create-quiz'>
+							<div className='image-box'>
+								{question.image && <Image src={question.image} fill alt='' />}
+								<span>{quizId}</span>
 							</div>
-						))}
 
-						<div className='add-questions'>
-							<button className='btn btn-success me-2'>Submit Answers</button>
-							<button className='btn btn-dark text-light'>Save Draft</button>
+							<div className='quiz-header'>
+								<h1>{question.title}</h1>
+								<p>{question.description}</p>
+							</div>
+
+							{question.questions.map((itm, idx) => (
+								<div className={`question ${itm.type} my-3`} key={idx}>
+									<h3>{`${idx + 1}. ${itm.title}`}</h3>
+									<p>{itm.description}</p>
+									<Options item={itm} index={idx} ans={answers} setAns={setAnswers} />
+								</div>
+							))}
+
+							<div className='add-questions'>
+								<button className='btn btn-success me-2'>Submit Answers</button>
+								<button className='btn btn-dark text-light'>Save Draft</button>
+							</div>
 						</div>
-					</div>
+					)}
 				</div>
 			</div>
 		</Layout>

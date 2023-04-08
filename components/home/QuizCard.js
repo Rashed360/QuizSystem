@@ -8,8 +8,10 @@ const QuizCard = ({ question }) => {
 	return (
 		<div className='quizCard'>
 			<div className='image'>
-				//TODO: image container needs fixes
-				{/* <Image src={image} fill alt='' /> */}
+				{
+					//TODO: image container needs fixes
+					/* <Image src={image} fill alt='' /> */
+				}
 				<Image src={image} width={220} height={200} alt='' />
 			</div>
 			<div className='details'>
