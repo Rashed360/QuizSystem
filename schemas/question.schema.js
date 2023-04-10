@@ -5,6 +5,7 @@ export const createQuestionFormSchema = z.object({
 	title: z.string().min(1, { message: 'Title is required' }).max(100, 'Max length is 100'),
 	description: z.string().max(500, 'Max length is 500').optional(),
 	questions: z.array(questionSchema),
+	config: z.object(),
 })
 
 export const questionSchema = z.object({

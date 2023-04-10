@@ -52,6 +52,7 @@ const initialState = {
 			],
 		},
 	],
+	config: {},
 }
 
 export const questionSlice = createSlice({
