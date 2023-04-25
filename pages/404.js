@@ -9,10 +9,10 @@ const NoMatch = () => {
 	})
 	return (
 		<div className='centerAlign'>
-			<RiveComponent style={{height: '300px'}} />
-			<button className='btn' onClick={() => router.back()}>
-				Nothing's Here | Go-Back
-			</button>
+			<RiveComponent style={{ width: '375px', height: '95px' }} />
+			<p style={{ cursor: 'pointer' }} onClick={() => router.back()}>
+				Nothing's Here! Go-Back
+			</p>
 		</div>
 	)
 }

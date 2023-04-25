@@ -73,12 +73,6 @@ input[type='number']:focus,
 	color: $dark;
 	border: 1px solid $dark;
 }
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-	color: #213043;
-	border: 1px solid #213043;
-}
 /* Inputs */
 textarea.form-control,
 input.form-control {
