@@ -150,6 +150,8 @@
 	background: rgba(0, 0, 0, 0.025);
 	.setting-window {
 		user-select: none;
+		min-width: 780px;
+		min-height: 450px;
 		padding: 25px 0;
 		background: #fefefe;
 		border: 1px solid #cccccc;

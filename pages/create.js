@@ -13,9 +13,11 @@ const CreateQuiz = () => {
 	const router = useRouter()
 	const dispatch = useDispatch()
 	const [settings, setSettings] = useState(false)
+	const [activeTab, setActiveTab] = useState(0)
 	const [activeQues, setActiveQues] = useState(0)
 	const question = useSelector(state => state.question)
 	const settingsToggle = () => setSettings(!settings)
+	const activeTabSwitch = tab => setActiveTab(tab)
 
 	return (
 		<Layout>
@@ -66,20 +68,76 @@ const CreateQuiz = () => {
 									</button>
 								</div>
 								<div className='menu-bar'>
-									<div className='menu active'>General</div>
-									<div className='menu'>Time</div>
-									<div className='menu'>Option</div>
-									<div className='menu'>Answers</div>
+									<div
+										onClick={() => activeTabSwitch(0)}
+										className={`menu${activeTab === 0 ? ' active' : ''}`}
+									>
+										General
+									</div>
+									<div
+										onClick={() => activeTabSwitch(1)}
+										className={`menu${activeTab === 1 ? ' active' : ''}`}
+									>
+										Time
+									</div>
+									<div
+										onClick={() => activeTabSwitch(2)}
+										className={`menu${activeTab === 2 ? ' active' : ''}`}
+									>
+										Option
+									</div>
+									<div
+										onClick={() => activeTabSwitch(3)}
+										className={`menu${activeTab === 3 ? ' active' : ''}`}
+									>
+										Answers
+									</div>
 								</div>
 								<div className='client-area'>
-									<div className='option'>
-										<input type='checkbox' name='' />
-										<label htmlFor=''>All questions are required.</label>
-									</div>
-									<div className='option'>
-										<input type='checkbox' name='' />
-										<label htmlFor=''>Random apperence.</label>
-									</div>
+									{activeTab === 0 && (
+										<>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>All questions are required.</label>
+											</div>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>Random apperence.</label>
+											</div>
+										</>
+									)}
+									{activeTab === 1 && (
+										<>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>Specific start and end time.</label>
+											</div>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>Specific time for each question.</label>
+											</div>
+										</>
+									)}
+									{activeTab === 2 && (
+										<>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>Shuffle every options.</label>
+											</div>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>Show progress bar.</label>
+											</div>
+										</>
+									)}
+									{activeTab === 3 && (
+										<>
+											<div className='option'>
+												<input type='checkbox' name='' />
+												<label htmlFor=''>Show answers instantly.</label>
+											</div>
+										</>
+									)}
 								</div>
 							</div>
 						</div>
