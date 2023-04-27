@@ -67,30 +67,32 @@ const CreateQuiz = () => {
 										<CrossIcon />
 									</button>
 								</div>
-								<div className='menu-bar'>
-									<div
-										onClick={() => activeTabSwitch(0)}
-										className={`menu${activeTab === 0 ? ' active' : ''}`}
-									>
-										General
-									</div>
-									<div
-										onClick={() => activeTabSwitch(1)}
-										className={`menu${activeTab === 1 ? ' active' : ''}`}
-									>
-										Time
-									</div>
-									<div
-										onClick={() => activeTabSwitch(2)}
-										className={`menu${activeTab === 2 ? ' active' : ''}`}
-									>
-										Option
-									</div>
-									<div
-										onClick={() => activeTabSwitch(3)}
-										className={`menu${activeTab === 3 ? ' active' : ''}`}
-									>
-										Answers
+								<div className='menu-bar-container'>
+									<div className='menu-bar'>
+										<div
+											onClick={() => activeTabSwitch(0)}
+											className={`menu${activeTab === 0 ? ' active' : ''}`}
+										>
+											General
+										</div>
+										<div
+											onClick={() => activeTabSwitch(1)}
+											className={`menu${activeTab === 1 ? ' active' : ''}`}
+										>
+											Time
+										</div>
+										<div
+											onClick={() => activeTabSwitch(2)}
+											className={`menu${activeTab === 2 ? ' active' : ''}`}
+										>
+											Option
+										</div>
+										<div
+											onClick={() => activeTabSwitch(3)}
+											className={`menu${activeTab === 3 ? ' active' : ''}`}
+										>
+											Answers
+										</div>
 									</div>
 								</div>
 								<div className='client-area'>
