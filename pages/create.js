@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { PlusIcon, TickIcon } from 'assets/Icons'
+import { PlusIcon, TickIcon, CrossIcon } from 'assets/Icons'
 import { addQuestion } from 'state/question'
 // import { useForm } from 'react-hook-form'
 // import { zodResolver } from '@hookform/resolvers/zod'
@@ -12,8 +12,10 @@ import Options from 'components/create/Options'
 const CreateQuiz = () => {
 	const router = useRouter()
 	const dispatch = useDispatch()
+	const [settings, setSettings] = useState(false)
 	const [activeQues, setActiveQues] = useState(0)
 	const question = useSelector(state => state.question)
+	const settingsToggle = () => setSettings(!settings)
 
 	return (
 		<Layout>
@@ -46,11 +48,42 @@ const CreateQuiz = () => {
 							<button className='btn btn-success me-2' onClick={() => dispatch(addQuestion())}>
 								Add Question <PlusIcon />
 							</button>
+							<button className='btn btn-warning me-2' onClick={settingsToggle}>
+								<TickIcon /> Settings
+							</button>
 							<button className='btn btn-dark text-light' onClick={() => router.push('/publish')}>
 								<TickIcon /> Publish Quiz
 							</button>
 						</div>
 					</div>
+					{settings && (
+						<div className='quiz-settings'>
+							<div className='setting-window'>
+								<div className='title-bar'>
+									<h5>Quiz Settings</h5>
+									<button onClick={settingsToggle}>
+										<CrossIcon />
+									</button>
+								</div>
+								<div className='menu-bar'>
+									<div className='menu active'>General</div>
+									<div className='menu'>Time</div>
+									<div className='menu'>Option</div>
+									<div className='menu'>Answers</div>
+								</div>
+								<div className='client-area'>
+									<div className='option'>
+										<input type='checkbox' name='' />
+										<label htmlFor=''>All questions are required.</label>
+									</div>
+									<div className='option'>
+										<input type='checkbox' name='' />
+										<label htmlFor=''>Random apperence.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</Layout>

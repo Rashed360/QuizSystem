@@ -40,6 +40,19 @@ export const DeleteIcon = () => {
 	)
 }
 
+export const CrossIcon = () => {
+	return (
+		<svg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
+			<path
+				d='M7.31372 7.31371L1.65687 1.65685M1.65687 12.9706L7.31372 7.31371L1.65687 12.9706ZM7.31372 7.31371L12.9706 1.65685L7.31372 7.31371ZM7.31372 7.31371L12.9706 12.9706L7.31372 7.31371Z'
+				stroke='#556272'
+				stroke-width='2'
+				stroke-linecap='round'
+			/>
+		</svg>
+	)
+}
+
 export const ShortIcon = () => {
 	return (
 		<svg width='16' height='6' viewBox='0 0 16 6' fill='none'>
