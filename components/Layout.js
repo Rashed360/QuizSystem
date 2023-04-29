@@ -21,6 +21,20 @@ const Layout = ({ children, title }) => {
 		<>
 			<Head>
 				<title>{title ? 'Quiz System • ' + title : 'Quiz System'}</title>
+				<meta name='author' content='Rashed Ahmed' />
+				<meta
+					name='description'
+					content={description ? description : 'Create quizes and share with others!'}
+				/>
+				<meta name='keywords' content='quiz, system, exam' />
+				<meta property='og:type' content='website' />
+				<meta property='og:title' content='Welcome to QuizSystem' />
+				{/* <meta property='og:image' content='' /> */}
+				<meta
+					property='og:description'
+					content='Attempt public quizes, or enter quiz-key to attempt a private quiz.
+					Create quizes and share with others! Happy Knowledge sharing!'
+				/>
 			</Head>
 			<NavBar />
 			<div className='marginTop'>{children}</div>
