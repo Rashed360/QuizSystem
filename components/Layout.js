@@ -29,7 +29,7 @@ const Layout = ({ children, title, description }) => {
 				<meta name='keywords' content='quiz, system, exam' />
 				<meta property='og:type' content='website' />
 				<meta property='og:title' content='Welcome to QuizSystem' />
-				{/* <meta property='og:image' content='' /> */}
+				<meta property='og:image' content='https://quizsystem.vercel.app/thumbnail.png' />
 				<meta
 					property='og:description'
 					content='Attempt public quizes, or enter quiz-key to attempt a private quiz.

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Layout from '../../components/Layout'
 import Image from 'next/image'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import FETCHED_QUESTIONS from 'data/mockQuestions'
 
@@ -12,6 +13,11 @@ const AttendQuiz = () => {
 
 	return (
 		<Layout>
+			<Head>
+				<meta property='og:title' content={question.title} />
+				<meta property='og:image' content={question.image} />
+				<meta property='og:description' content={question.description} />
+			</Head>
 			<div className='container'>
 				<div className='row d-flex justify-content-center'>
 					{question && (
