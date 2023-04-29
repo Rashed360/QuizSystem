@@ -27,10 +27,10 @@ const Login = ({ toggler }) => {
 					<input type='checkbox' class='form-check-input' />
 					<label class='form-check-label'>Remember Me</label>
 				</div>
-				<button type='submit' class='btn btn-success'>
+				<button type='submit' class='btn btn-success me-3'>
 					Login Now
 				</button>
-				<button className='btn ms-3' onClick={toggler}>
+				<button className='btn' onClick={toggler}>
 					SignUp?
 				</button>
 			</form>

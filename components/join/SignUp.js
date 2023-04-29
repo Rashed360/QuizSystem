@@ -35,10 +35,10 @@ const SignUp = ({ toggler }) => {
 					<input type='checkbox' class='form-check-input' />
 					<label class='form-check-label'>I accept QuizSystem's terms and conditions.</label>
 				</div>
-				<button type='submit' class='btn btn-success'>
+				<button type='submit' class='btn btn-success me-3'>
 					Create Account
 				</button>
-				<button className='btn ms-3' onClick={toggler}>
+				<button className='btn' onClick={toggler}>
 					Login?
 				</button>
 			</form>
