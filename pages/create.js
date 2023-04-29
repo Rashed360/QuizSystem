@@ -7,6 +7,7 @@ import { addQuestion } from 'state/question'
 // import { zodResolver } from '@hookform/resolvers/zod'
 import Layout from 'components/Layout'
 import Image from 'next/image'
+import Banner from 'assets/banner.png'
 import Options from 'components/create/Options'
 
 const CreateQuiz = () => {
@@ -25,8 +26,12 @@ const CreateQuiz = () => {
 				<div className='row d-flex justify-content-center'>
 					<div className='col-lg-8 create-quiz'>
 						<div className='image-box'>
-							{question.image && <Image src='' alt='' />}
-							<span>Click to add image</span>
+							{question.image ? (
+								<Image src={question.image} alt={question.title} />
+							) : (
+								<Image src={Banner} width={1024} height={278} alt='' />
+							)}
+							<span>Click to add image (1024x278)</span>
 						</div>
 
 						<div className='quiz-header'>

@@ -275,6 +275,11 @@
 		background: #e6e6e6;
 		border-top-left-radius: 15px;
 		border-top-right-radius: 15px;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
 		span {
 			position: absolute;
 			left: 20px;
