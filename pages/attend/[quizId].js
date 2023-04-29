@@ -12,11 +12,11 @@ const AttendQuiz = () => {
 	const question = FETCHED_QUESTIONS.find(itm => itm._id === quizId)
 
 	return (
-		<Layout>
+		<Layout title={question?.title} description={question?.description}>
 			<Head>
-				<meta property='og:title' content={question.title} />
-				<meta property='og:image' content={question.image} />
-				<meta property='og:description' content={question.description} />
+				<meta property='og:title' content={question?.title} />
+				<meta property='og:image' content={question?.image} />
+				<meta property='og:description' content={question?.description} />
 			</Head>
 			<div className='container'>
 				<div className='row d-flex justify-content-center'>
