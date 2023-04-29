@@ -4,7 +4,7 @@ import Head from 'next/head'
 import NavBar from './NavBar'
 import Footer from './Footer'
 
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title, description }) => {
 	const mode = useSelector(state => state.theme.mode)
 	useEffect(() => {
 		const bodyClass = document.querySelector('body').classList
