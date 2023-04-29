@@ -27,7 +27,7 @@ const CreateQuiz = () => {
 					<div className='col-lg-8 create-quiz'>
 						<div className='image-box'>
 							{question.image ? (
-								<Image src={question.image} alt={question.title} />
+								<Image src={question.image} width={1024} height={278} alt={question.title} />
 							) : (
 								<Image src={Banner} width={1024} height={278} alt='' />
 							)}

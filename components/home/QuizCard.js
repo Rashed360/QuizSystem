@@ -1,35 +1,38 @@
 import { FaCheck, FaStar, FaRegEye } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Banner from 'assets/banner.png'
 
 const QuizCard = ({ question }) => {
 	const { _id, title, description, image } = question
 	const router = useRouter()
 	return (
 		<div className='quizCard'>
-			<div className='image'>
-				{
-					//TODO: image container needs fixes
-					/* <Image src={image} fill alt='' /> */
-				}
-				<Image src={image} width={220} height={200} alt='' />
-			</div>
 			<div className='details'>
-				<h5>{title}</h5>
-				<p>{description}</p>
-				<div className='interaction'>
+				<div>
+					<h4>{title}</h4>
+					<p>{description}</p>
+				</div>
+				<div className='actions'>
 					<div className='buttons'>
-						<button className='btn btn-success me-2' onClick={() => router.push(`/attend/${_id}`)}>
-							<FaCheck /> Attempt
+						<button className='btn btn-success' onClick={() => router.push(`/attend/${_id}`)}>
+							<FaCheck /> <span>Attempt</span>
 						</button>
-						<button className='btn btn-info me-2'>
-							<FaStar /> Wishlist
+						<button className='btn btn-info'>
+							<FaStar /> <span>Wishlist</span>
 						</button>
 					</div>
-					<span>
+					<span className='views'>
 						<FaRegEye /> 253
 					</span>
 				</div>
+			</div>
+			<div className='image'>
+				{image ? (
+					<Image src={image} width={1024} height={278} alt={title} />
+				) : (
+					<Image src={Banner} width={1024} height={278} alt='' />
+				)}
 			</div>
 		</div>
 	)

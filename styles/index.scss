@@ -29,6 +29,9 @@
 		margin-top: 35px;
 		.quiz-cards {
 			margin-top: 20px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
 		}
 	}
 }
@@ -44,46 +47,65 @@
 
 /* QuizCard */
 .quizCard {
-	position: relative;
-	display: flex;
-	gap: 20px;
-	padding: 15px;
-	margin-bottom: 15px;
-	color: var(--dark);
+	padding: 10px;
 	background: #ffffff;
 	border: 1px solid #cccccc;
 	border-radius: 15px;
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	overflow: hidden;
 	.details {
-		width: calc(100% - 220px);
-		order: 1;
-		p {
-			max-height: 100px;
-			margin: 16px 0;
-			overflow: hidden;
-			text-overflow: ellipsis;
+		width: 390px;
+		padding-left: 5px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		h4 {
+			padding-top: 5px;
+			font-size: 20px;
+			font-weight: 400;
+			color: #424242;
 		}
-		.interaction {
+		p {
+			display: -webkit-box;
+			overflow: hidden;
+			margin-bottom: 0;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
+
+			line-height: 25px;
+			text-align: justify;
+			color: #556272;
+		}
+		.actions {
+			margin-top: 10px;
 			display: flex;
 			justify-content: space-between;
-			span {
+			.buttons {
+				display: flex;
+				gap: 10px;
+			}
+			span.views {
+				text-align: center;
+				padding: 9px 0;
 				font-weight: 500;
 				font-size: 18px;
-				line-height: 45px;
-				background: whitesmoke;
-				padding: 0px 20px;
-				border-radius: 5px;
+				color: #556272;
 			}
 		}
-		.image {
-			order: 2;
-			max-width: 200px;
-			max-height: 200px;
-			background: #e9e9e9;
-			border-radius: 5px;
-			overflow: hidden;
-			img {
-				height: 100%;
-			}
+	}
+	.image {
+		width: 57%;
+		height: 222px;
+		background: #e6e6e6;
+		border-radius: 5px;
+		overflow: hidden;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
 		}
 	}
 }

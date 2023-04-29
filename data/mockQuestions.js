@@ -4,7 +4,7 @@ const FETCHED_QUESTIONS = [
 	{
 		_id: '123e4567-e89b-12d3-a456-426652340000',
 		image: sample,
-		title: "Are you smarter than world's smartest ape?",
+		title: "Are you smarter than the world's smartest ape? Take the test!",
 		description:
 			"To say that Kanzi, a Bonobo ape that resides at The Great Ape Sanctuary outside Des Moines, Iowa, is smarter than a human bady toddler, may be understating this matter. It's because of the",
 		questions: [
@@ -221,7 +221,7 @@ const FETCHED_QUESTIONS = [
 	},
 	{
 		_id: '213e4567-e89b-12d3-a456-000042665234',
-		image: sample,
+		image: '',
 		title: 'Can you guess the sequence..?',
 		title1: "Are you smarter than world's smartest ape?",
 		description:
