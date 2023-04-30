@@ -1,13 +1,13 @@
 import OptionToolbar from './OptionToolbar'
-import { Short, Long, Mcq, Trfl, Drop, File, Doc, Img, Linear, Ratio } from './OptionTypes'
+import { Short, Long, Mcq, Trfl, Drop, File, Doc, Img, Linear, Range } from './OptionTypes'
 
 const Options = ({ item, idx, active }) => {
 	const type = item.type
 	const data = item.options
 	const questionType = () => {
 		switch (type) {
-			case 'ratio':
-				return <Ratio />
+			case 'range':
+				return <Range />
 			case 'linear':
 				return <Linear />
 			case 'img':

@@ -6,21 +6,21 @@ const initialState = {
 	description: 'Quiz Description',
 	questions: [
 		{
-			title: 'Question Title',
-			description: 'Question Description (Optional)',
 			type: 'short',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
 			options: [],
 		},
 		{
-			title: 'Question Title',
-			description: 'Question Description (Optional)',
 			type: 'long',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
 			options: [],
 		},
 		{
+			type: 'mcq',
 			title: 'Question Title',
 			description: 'Question Description (Optional)',
-			type: 'mcq',
 			options: [
 				{
 					title: 'Choice One Title',
@@ -33,9 +33,9 @@ const initialState = {
 			],
 		},
 		{
+			type: 'trfl',
 			title: 'Question Title',
 			description: 'Question Description (Optional)',
-			type: 'trfl',
 			options: [
 				{
 					title: 'Option Title (True)',
@@ -48,6 +48,82 @@ const initialState = {
 				{
 					title: 'Option Title (False)',
 					name: 'trfl',
+				},
+			],
+		},
+		{
+			type: 'drop',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
+			options: [
+				{
+					title: 'Option One Title',
+					name: 'trfl',
+				},
+				{
+					title: 'Option Two Title',
+					name: 'trfl',
+				},
+				{
+					title: 'Option Three Title',
+					name: 'trfl',
+				},
+			],
+		},
+		{
+			type: 'file',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
+			options: [
+				{
+					maxFiles: 2,
+					maxSize: 100,
+				},
+			],
+		},
+		{
+			type: 'doc',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
+			options: [
+				{
+					maxFiles: 2,
+					maxSize: 100,
+				},
+			],
+		},
+		{
+			type: 'img',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
+			options: [
+				{
+					maxFiles: 2,
+					maxSize: 100,
+				},
+			],
+		},
+		{
+			type: 'linear',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
+			options: [
+				{
+					start: 0,
+					end: 10,
+					lowest: 'Worst',
+					highest: 'Excelent',
+				},
+			],
+		},
+		{
+			type: 'range',
+			title: 'Question Title',
+			description: 'Question Description (Optional)',
+			options: [
+				{
+					start: 0,
+					end: 100,
 				},
 			],
 		},

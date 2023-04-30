@@ -1,6 +1,8 @@
+/* Utilities */
 .marginTop {
 	margin-top: 60px;
 }
+
 /* Navigation */
 .nav-button {
 	color: #556272;
@@ -386,6 +388,52 @@
 }
 
 /* Custom Inputs */
+.files-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	button {
+		flex: 1;
+		white-space: nowrap;
+		max-height: 45px;
+		padding: 10px 15px;
+		background: #ffffff;
+		border: 1px solid #556272;
+		border-radius: 5px;
+		color: #556272;
+		&:hover {
+			background: #fafafa;
+		}
+	}
+}
+.group {
+	display: flex;
+	span {
+		color: #556272;
+		background: #f4f4f4;
+	}
+	input {
+		background: #ffffff;
+		border: 1px solid #cccccc;
+	}
+	span,
+	input {
+		width: max-content;
+		display: inline-block;
+		padding: 10px 15px;
+		&:first-child {
+			padding-right: 5px;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+		&:last-child {
+			padding-left: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+	}
+}
 .input-container {
 	position: relative;
 	border: 1px solid #e6e6e6;
