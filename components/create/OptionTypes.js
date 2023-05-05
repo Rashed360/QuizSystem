@@ -4,10 +4,19 @@ export const Range = () => {
 	return <div className='input-container'>Range</div>
 }
 
-export const Linear = () => {
+export const Linear = ({ min = 0, max = 10, mind = 'Worst', maxd = 'Excellent' }) => {
 	return (
 		<div className='range-container'>
-			<input type='range' min='1' max='100' value='50' />
+			<input type='range' min={min} max={max} defaultValue={(min + max) / 2} />
+			<div className='marks'>
+				{[...Array(max - min + 1)].map((_, i) => (
+					<span key={i}></span>
+				))}
+			</div>
+			<div className='denominators'>
+				<span>{mind}</span>
+				<span>{maxd}</span>
+			</div>
 		</div>
 	)
 }
