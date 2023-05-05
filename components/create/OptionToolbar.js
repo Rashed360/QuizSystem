@@ -11,11 +11,41 @@ const OptionToolbar = ({ optionType, id }) => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		if (optionType === 'mcq') setInputValue('Multiple Choice')
-		else if (optionType === 'trfl') setInputValue('True/False')
-		else if (optionType === 'long') setInputValue('Long Question')
-		else if (optionType === 'short') setInputValue('Short Question')
-		else setInputValue('')
+		switch (optionType) {
+			case 'range':
+				setInputValue('Ratio Scale')
+				break
+			case 'linear':
+				setInputValue('Linear Scale')
+				break
+			case 'img':
+				setInputValue('Images')
+				break
+			case 'doc':
+				setInputValue('Documents')
+				break
+			case 'file':
+				setInputValue('Any File')
+				break
+			case 'drop':
+				setInputValue('Dropdown')
+				break
+			case 'trfl':
+				setInputValue('True/False')
+				break
+			case 'mcq':
+				setInputValue('Multiple Choice')
+				break
+			case 'long':
+				setInputValue('Long Question')
+				break
+			case 'short':
+				setInputValue('Short Question')
+				break
+			default:
+				setInputValue('')
+				break
+		}
 	}, [optionType])
 
 	const toggleOptionsToolbar = () => setToolbar(!toolbar)
