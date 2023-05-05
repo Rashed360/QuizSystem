@@ -5,15 +5,49 @@ export const Range = () => {
 }
 
 export const Linear = () => {
-	return <div className='input-container'>Linear</div>
+	return (
+		<div className='range-container'>
+			<input type='range' min='1' max='100' value='50' />
+		</div>
+	)
 }
 
 export const Img = () => {
-	return <div className='input-container'>Img</div>
+	return (
+		<div className='files-container'>
+			<button>
+				<UploadIcon /> Upload Image
+			</button>
+			<div className='group'>
+				<span>Max Images</span>
+				<input type='number' placeholder='99' max={99} min={1} style={{ width: '61px' }} />
+			</div>
+			<div className='group'>
+				<span>Max Size</span>
+				<input type='number' placeholder='999' max={500} min={1} style={{ width: '71px' }} />
+				<span>Mb</span>
+			</div>
+		</div>
+	)
 }
 
 export const Doc = () => {
-	return <div className='input-container'>Doc</div>
+	return (
+		<div className='files-container'>
+			<button>
+				<UploadIcon /> Upload Document
+			</button>
+			<div className='group'>
+				<span>Max Documents</span>
+				<input type='number' placeholder='99' max={99} min={1} style={{ width: '61px' }} />
+			</div>
+			<div className='group'>
+				<span>Max Size</span>
+				<input type='number' placeholder='999' max={500} min={1} style={{ width: '71px' }} />
+				<span>Mb</span>
+			</div>
+		</div>
+	)
 }
 
 export const File = () => {

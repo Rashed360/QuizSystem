@@ -35,6 +35,12 @@
 	.joinForm {
 		width: 95%;
 	}
+	.group {
+		flex: 1;
+		span:first-child {
+			flex: 1;
+		}
+	}
 }
 
 @media (max-width: 375px) {
